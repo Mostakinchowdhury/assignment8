@@ -51,7 +51,7 @@ function increment() {
   display.textContent = count
 }
 function decrement() {
-  if (count >= 0) {
+  if (count <= 0) {
     alert("😊 counter cann't be a negative value")
   }
   count = Math.max(count - 1, 0)
