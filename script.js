@@ -33,6 +33,12 @@ async function copycolor() {
     console.log('🚫 sorry fail to copy', error)
   }
 }
+const hexToRGB = (hex) => {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  return `rgb(${r}, ${g}, ${b})`
+}
 
 function applycolor() {
   if (!color.value) {
@@ -40,6 +46,11 @@ function applycolor() {
     return
   }
   if (confirm('🎯 Do you want to appy on this page container?')) {
+    if (getComputedStyle(section).backgroundColor == hexToRGB(color.value)) {
+      console.log(hexToRGB(color.value), getComputedStyle(section).backgroundColor)
+      alert('🤣 This color already applied to your webpage')
+      return
+    }
     section.style.backgroundColor = color.value
   } else {
     return
