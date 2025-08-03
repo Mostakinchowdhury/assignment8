@@ -34,7 +34,6 @@ section {
   padding: 16px;
   border-radius: 8px;
   border: 2px solid black;
-
 }
 
 .container {
@@ -57,4 +56,21 @@ input {
   font-weight: normal;
   text-transform: capitalize;
   transition: all 0.2s linear;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  justify-content: space-between;
+  align-content: center;
+  gap: 12px;
+}
+
+ul li {
+  list-style: none;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
 }

@@ -5,7 +5,8 @@ let inc = document.getElementById('inc'),
   copy = document.getElementById('copy'),
   genaret = document.getElementById('genaret'),
   apply = document.getElementById('apply'),
-  section = document.querySelector('section')
+  section = document.querySelector('section'),
+  ul = document.querySelector('ul')
 
 let color_value = '#',
   count = 0
@@ -68,6 +69,15 @@ function decrement() {
   count = Math.max(count - 1, 0)
   display.textContent = count
 }
+
+function addtoul(e) {
+  let li = document.createElement('li')
+  li.textContent = e.key
+  console.log(li)
+  ul.appendChild(li)
+}
+
+window.addEventListener('keydown', addtoul)
 genaret.addEventListener('click', generate_color)
 copy.addEventListener('click', copycolor)
 apply.addEventListener('click', applycolor)
