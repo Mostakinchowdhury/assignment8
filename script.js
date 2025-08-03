@@ -77,9 +77,23 @@ function addtoul(e) {
   ul.appendChild(li)
 }
 
+async function fetchdata() {
+  let divn = document.createElement('div')
+  try {
+    let data = await fetch('http://127.0.0.1:8000/blog/apiview/')
+    let jsondata = await data.json()
+    divn.textContent = JSON.stringify(jsondata)
+  } catch (error) {
+    divn.textContent = error.message
+    console.log(error)
+  }
+  section.appendChild(divn)
+}
+
 window.addEventListener('keydown', addtoul)
 genaret.addEventListener('click', generate_color)
 copy.addEventListener('click', copycolor)
 apply.addEventListener('click', applycolor)
 inc.addEventListener('click', increment)
 dec.addEventListener('click', decrement)
+document.getElementById('fetch').addEventListener('click', fetchdata)
